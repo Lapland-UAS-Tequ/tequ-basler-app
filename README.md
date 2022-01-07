@@ -137,7 +137,7 @@ MJPEG stream is available from http://localhost:8081/23751808
 Please modify paths in node-red-node-daemon node and multipart-decoder to match your setup.
 
 ![alt text](
-https://github.com/Lapland-UAS-Tequ/tequ-basler-app/blob/main/images/example-flow.JPG "Example flow")
+https://github.com/Lapland-UAS-Tequ/tequ-basler-app/blob/main/images/example-flow-1.JPG "Example flow")
 
 Example flow:
 ```
