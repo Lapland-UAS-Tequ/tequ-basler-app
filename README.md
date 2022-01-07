@@ -56,7 +56,7 @@ npm install kevinGodell/node-red-contrib-pipe2jpeg
 git clone https://github.com/Lapland-UAS-Tequ/tequ-basler-app
 ```
 
-# Command format to send to stdin
+# Sending commands to application
 
 You can send one or more commands as JSON array to application. 
 
