@@ -5,29 +5,29 @@ Connects to Basler camera and outputs JPEG images to stdout and serves JPEG imag
 
 This installation procedure is for Windows 10 machine. Linux based machines are also supported, but these steps might be different. Please check Basler site for installation steps for Linux.
 
-1. Install Basler pylon software
+## 1. Install Basler pylon software
 
 https://www.baslerweb.com/en/products/software/basler-pylon-camera-software-suite/
 
-2. Install Python 
+## 2. Install Python 
 
 Developed and tested with Python 3.7.9.
 
-3. Install official Basler python wrapper
+## 3. Install official Basler python wrapper
 ```
 pip install pypylon
 ```
 
-4. Test your setup with Pylon viewer
+## 4. Test your setup with Pylon viewer
 
-5. Install OpenCV for Python
+## 5. Install OpenCV for Python
 ```
 pip install opencv-python
 ```
 
 Developed and tested with OpenCV 4.5.5.
 
-6. Install Node-RED
+## 6. Install Node-RED
 
 https://nodered.org/docs/getting-started/local
 
@@ -35,7 +35,7 @@ https://nodered.org/docs/getting-started/local
 npm install -g --unsafe-perm node-red
 ```
 
-7. Install Node-RED nodes
+## 7. Install Node-RED nodes
 ```
 npm install node-red-node-daemon
 ```
@@ -49,7 +49,7 @@ npm install node-red-contrib-multipart-stream-decoder
 npm install kevinGodell/node-red-contrib-pipe2jpeg
 ```
 
-8. Clone repository
+3# 8. Clone repository
 ```
 git clone https://github.com/Lapland-UAS-Tequ/tequ-basler-app
 ```
@@ -86,7 +86,7 @@ Example flow:
 
 
 
-### Sources:
+# Sources:
 
 Node-RED daemon node
 https://flows.nodered.org/node/node-red-node-daemon
