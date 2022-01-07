@@ -46,6 +46,10 @@ npm install kevinGodell/node-red-contrib-pipe2jpeg
 
 # Usage
 
+![alt text](
+https://github.com/Lapland-UAS-Tequ/tequ-basler-app/blob/main/images/example-flow.JPG "Example flow")
+
+
 
 Example flow:
 ```
