@@ -147,18 +147,23 @@ Example flow:
 ## Links and sources:
 
 Basler
+
 https://github.com/basler/pypylon
 
 OpenCV
+
 https://opencv.org/
 
 Python
+
 https://www.python.org/
 
 Node-RED
+
 https://nodered.org/
 
 Node-RED nodes
+
 https://flows.nodered.org/node/node-red-node-daemon
 
 https://github.com/kevinGodell/node-red-contrib-pipe2jpeg
@@ -168,7 +173,9 @@ https://flows.nodered.org/node/node-red-contrib-image-output
 https://flows.nodered.org/node/node-red-contrib-multipart-stream-decoder
 
 MJPEG server: 
+
 https://github.com/vuquangtrong/pi_streaming 
 
 Basler camera:
+
 https://github.com/basler/pypylon
