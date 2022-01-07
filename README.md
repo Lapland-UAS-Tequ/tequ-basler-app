@@ -9,7 +9,9 @@ This installation procedure is for Windows 10 machine. Linux based machines are 
 
 https://www.baslerweb.com/en/products/software/basler-pylon-camera-software-suite/
 
-2. Install Python
+2. Install Python 
+
+Developed and tested with Python 3.7.9.
 
 3. Install official Basler python wrapper
 ```
@@ -22,6 +24,8 @@ pip install pypylon
 ```
 pip install opencv-python
 ```
+
+Developed and tested with OpenCV 4.5.5.
 
 6. Install Node-RED
 
