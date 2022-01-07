@@ -1,5 +1,7 @@
 # tequ-basler-app
 Connects to Basler camera and outputs JPEG images to stdout and serves JPEG images as MJPEG stream at local http server. This app is tested with Windows 10 machine and Basler ACE acA2500-14gm camera. Application is designed to be used as a system command from Node-RED (node-red-node-daemon) but can be used as stand-alone Python app.
+
+Application initializes target Basler camera with parameters configured in config.json. Application also listens to stdin for commands to be passed to camera in realtime.
  
 # Installation 
 
