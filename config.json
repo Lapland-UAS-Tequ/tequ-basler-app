@@ -1,0 +1,41 @@
+{
+	"23751808": {
+		"camera": {
+			"Width": 1920,
+			"Height": 800,
+			"CenterY": true,
+			"ReverseX": true,
+			"BinningHorizontal": 1,
+			"BinningVertical": 1,
+			"ExposureMode": "Timed",
+			"ExposureAuto": "Continuous",
+			"GainAuto": "Continuous",
+			"BlackLevelRaw":8,
+			"GammaEnable": true,
+			"GammaSelector": "sRGB",
+			"PixelFormat": "BayerGB8",
+			"ProcessedRawEnable": true,
+			"LightSourceSelector":"Daylight",
+			"AcquisitionFrameRateEnable": true,
+			"AcquisitionFrameRateAbs": 25.0,
+			"AutoTargetValue": 50,
+			"AutoGainRawLowerLimit": 0,
+			"AutoGainRawUpperLimit": 15,
+			"AutoExposureTimeAbsLowerLimit": 35.0,
+			"AutoExposureTimeAbsUpperLimit": 100000.0,
+			"AutoFunctionProfile": "GainMinimum",
+			"AutoFunctionAOIWidth": 1920,
+			"AutoFunctionAOIHeight": 800,
+			"AutoFunctionAOIOffsetX": 670,
+			"AutoFunctionAOIOffsetY": 1142,
+			"AutoFunctionAOIUsageIntensity": true,
+			"AutoFunctionAOIUsageWhiteBalance": true,
+			"BalanceWhiteAuto": "Once"
+		},
+		"converter": {
+			"Orientation": "BottomUp",
+			"ImageQuality": 85,
+			"GrabStrategy":"OneByOne"
+		}
+	}
+}
