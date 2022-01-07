@@ -9,19 +9,21 @@ This installation procedure is for Windows 10 machine. Linux based machines are 
 
 https://www.baslerweb.com/en/products/software/basler-pylon-camera-software-suite/
 
-2. Install official Basler python wrapper
+2. Install Python
+
+3. Install official Basler python wrapper
 ```
 pip install pypylon
 ```
 
-3. Test your setup with Pylon viewer
+4. Test your setup with Pylon viewer
 
-4. Install OpenCV for Python
+5. Install OpenCV for Python
 ```
 pip install opencv-python
 ```
 
-5. Install Node-RED
+6. Install Node-RED
 
 https://nodered.org/docs/getting-started/local
 
@@ -29,7 +31,7 @@ https://nodered.org/docs/getting-started/local
 npm install -g --unsafe-perm node-red
 ```
 
-6. Install Node-RED nodes
+7. Install Node-RED nodes
 ```
 npm install node-red-node-daemon
 ```
@@ -43,14 +45,14 @@ npm install node-red-contrib-multipart-stream-decoder
 npm install kevinGodell/node-red-contrib-pipe2jpeg
 ```
 
-7. Clone repository
+8. Clone repository
 ```
 git clone https://github.com/Lapland-UAS-Tequ/tequ-basler-app
 ```
 
 # Usage in Python
 
-Start app with parameters camera_id and http_port.
+Go to repository path and start app with parameters camera_id and http_port.
 
 ```
 python main.py <camera_id> <http_port>
