@@ -43,13 +43,35 @@ npm install node-red-contrib-multipart-stream-decoder
 npm install kevinGodell/node-red-contrib-pipe2jpeg
 ```
 
+7. Clone repository
+```
+git clone https://github.com/Lapland-UAS-Tequ/tequ-basler-app
+```
 
-# Usage
+# Usage in Python
+
+Start app with parameters camera_id and http_port.
+
+```
+python main.py <camera_id> <http_port>
+```
+
+For example:
+
+```
+python main.py 23751808 8081
+```
+
+Camera unique identifier can be found using Pylon viewer.
+
+MJPEG stream is available from http://localhost:8081/23751808
+
+# Usage in Node-RED
+
+Please modify paths in node-red-node-daemon node and multipart-decoder to match your setup.
 
 ![alt text](
 https://github.com/Lapland-UAS-Tequ/tequ-basler-app/blob/main/images/example-flow.JPG "Example flow")
-
-
 
 Example flow:
 ```
