@@ -51,10 +51,66 @@ npm install node-red-contrib-multipart-stream-decoder
 npm install kevinGodell/node-red-contrib-pipe2jpeg
 ```
 
-3# 8. Clone repository
+8. Clone repository
 ```
 git clone https://github.com/Lapland-UAS-Tequ/tequ-basler-app
 ```
+
+# Command format to send to stdin
+
+You can send one or more commands as JSON array to application. 
+
+```
+[
+   {
+      "BalanceWhiteAuto":"Once"
+   }
+]
+```
+
+Send commands as JSON string. 
+```
+[{"BalanceWhiteAuto":"Once"}]
+```
+
+Camera related commands
+```
+BalanceWhiteAuto
+Height
+Width
+BinningHorizontal                            
+BinningVertical                     
+CenterY
+ReverseX
+ExposureAuto
+GainAuto
+BlackLevelRaw
+GammaEnable
+GammaSelector                
+PixelFormat                 
+ProcessedRawEnable                 
+LightSourceSelector                 
+AcquisitionFrameRateEnable
+AcquisitionFrameRateAbs
+AutoTargetValue                          
+AutoGainRawLowerLimit
+AutoGainRawUpperLimit
+AutoExposureTimeAbsLowerLimit        
+AutoFunctionProfile
+AutoFunctionAOIWidth
+AutoFunctionAOIHeight
+AutoFunctionAOIOffsetX
+AutoFunctionAOIOffsetY
+AutoFunctionAOIUsageIntensity
+AutoFunctionAOIUsageWhiteBalance
+```
+
+Other commands
+```
+SetDefault
+PrintSettings
+```                              
+                       
 
 # Usage in Python
 
