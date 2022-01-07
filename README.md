@@ -134,7 +134,7 @@ MJPEG stream is available from http://localhost:8081/23751808
 
 ## Usage in Node-RED
 
-Please modify paths in "Run Basler app" and "multipart-decoder" to match your setup.
+Please modify paths in "Run Basler APP" and "multipart decoder" to match your setup.
 
 ![alt text](
 https://github.com/Lapland-UAS-Tequ/tequ-basler-app/blob/main/images/example-flow-1.JPG "Example flow")
