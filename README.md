@@ -144,6 +144,31 @@ Example flow:
 [{"id":"7b17aff1d1b99f4e","type":"tab","label":"example","disabled":false,"info":"","env":[]},{"id":"06dc961941923b6c","type":"inject","z":"7b17aff1d1b99f4e","name":"KILL","props":[{"p":"kill","v":"SIGTERM","vt":"str"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","x":210,"y":80,"wires":[["e92e0f14894ad57b"]]},{"id":"e92e0f14894ad57b","type":"daemon","z":"7b17aff1d1b99f4e","name":"Run Basler APP","command":"C:\\Users\\juha.autioniemi\\AppData\\Local\\Programs\\Python\\Python37\\python.exe ","args":"-u c:\\Users\\juha.autioniemi\\Desktop\\svn\\tequ\\dev\\Python\\apps\\tequ-basler-app\\main.py 23751808 8081","autorun":true,"cr":true,"redo":true,"op":"buffer","closer":"SIGKILL","x":420,"y":80,"wires":[["a5517d277ec0419e"],["7e7cf9de50bd1b23"],[]]},{"id":"d4a81a51ad1d5dea","type":"inject","z":"7b17aff1d1b99f4e","name":"BalanceWhiteAuto","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"[{\"BalanceWhiteAuto\":\"Once\"}]","payloadType":"str","x":170,"y":180,"wires":[["e92e0f14894ad57b"]]},{"id":"3df803a8bfa38474","type":"inject","z":"7b17aff1d1b99f4e","name":"PrintSettings","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"[{\"PrintSettings\":\"True\"}]","payloadType":"str","x":190,"y":220,"wires":[["e92e0f14894ad57b"]]},{"id":"de01a8f596957e75","type":"image","z":"7b17aff1d1b99f4e","name":"JPEG images","width":"180","data":"payload","dataType":"msg","thumbnail":false,"active":true,"pass":false,"outputs":0,"x":860,"y":60,"wires":[]},{"id":"e1d2405bb471a56e","type":"debug","z":"7b17aff1d1b99f4e","name":"ePrint messages from python app","active":false,"tosidebar":true,"console":false,"tostatus":false,"complete":"true","targetType":"full","statusVal":"","statusType":"auto","x":920,"y":200,"wires":[]},{"id":"7e7cf9de50bd1b23","type":"function","z":"7b17aff1d1b99f4e","name":"fmt","func":"let buf = Buffer.from(msg.payload)\n\nmsg.payload = buf.toString()\n\nif(buf.length > 100000){\n    return null;    \n}\nelse{\n    return msg;       \n}\n","outputs":1,"noerr":0,"initialize":"","finalize":"","libs":[],"x":690,"y":200,"wires":[["e1d2405bb471a56e"]]},{"id":"4bc401fc38f2c3b1","type":"comment","z":"7b17aff1d1b99f4e","name":"Sending commands to stdin","info":"","x":140,"y":140,"wires":[]},{"id":"75486975549580af","type":"comment","z":"7b17aff1d1b99f4e","name":"Connect to MJPEG stream","info":"","x":450,"y":280,"wires":[]},{"id":"3cddc2fa9f92953b","type":"multipart-decoder","z":"7b17aff1d1b99f4e","name":"","ret":"bin","url":"http://localhost:8081/23751808","tls":"","delay":0,"maximum":1000000,"blockSize":1,"x":430,"y":320,"wires":[["a64520dd98f281aa"]]},{"id":"d1f39f5638d4ae28","type":"inject","z":"7b17aff1d1b99f4e","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":200,"y":320,"wires":[["3cddc2fa9f92953b"]]},{"id":"a64520dd98f281aa","type":"image","z":"7b17aff1d1b99f4e","name":"JPEG images","width":"180","data":"payload","dataType":"msg","thumbnail":false,"active":true,"pass":false,"outputs":0,"x":860,"y":320,"wires":[]},{"id":"a5517d277ec0419e","type":"pipe2jpeg","z":"7b17aff1d1b99f4e","name":"","x":700,"y":60,"wires":[["de01a8f596957e75"]]}]
 ```
 
+##  Example: Node-RED flow to forward Basler camera image stream to RTSP 
+
+Install rtsp-simple-server
+
+https://github.com/aler9/rtsp-simple-server#installation
+
+Install FFmpeg 
+
+https://ffmpeg.org/
+
+Install FFmpeg spawn node
+
+```
+npm install https://github.com/kevinGodell/node-red-contrib-ffmpeg-spawn
+```
+
+Please modify paths in "Run Basler APP" and "Run rtsp-simple-server" to match your setup.
+
+```
+[{"id":"06dc961941923b6c","type":"inject","z":"7b17aff1d1b99f4e","name":"KILL","props":[{"p":"kill","v":"SIGTERM","vt":"str"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","x":230,"y":80,"wires":[["e92e0f14894ad57b"]]},{"id":"e92e0f14894ad57b","type":"daemon","z":"7b17aff1d1b99f4e","name":"Run Basler APP","command":"C:\\Users\\juha.autioniemi\\AppData\\Local\\Programs\\Python\\Python37\\python.exe ","args":"-u c:\\Users\\juha.autioniemi\\Desktop\\svn\\tequ\\dev\\Python\\apps\\tequ-basler-app\\main.py 23751808 8081","autorun":true,"cr":true,"redo":true,"op":"buffer","closer":"SIGKILL","x":420,"y":80,"wires":[["a5517d277ec0419e"],["7e7cf9de50bd1b23"],[]]},{"id":"de01a8f596957e75","type":"image","z":"7b17aff1d1b99f4e","name":"JPEG images","width":"180","data":"payload","dataType":"msg","thumbnail":false,"active":true,"pass":false,"outputs":0,"x":1040,"y":60,"wires":[]},{"id":"e1d2405bb471a56e","type":"debug","z":"7b17aff1d1b99f4e","name":"ePrint messages from python app","active":false,"tosidebar":true,"console":false,"tostatus":false,"complete":"true","targetType":"full","statusVal":"","statusType":"auto","x":1100,"y":200,"wires":[]},{"id":"7e7cf9de50bd1b23","type":"function","z":"7b17aff1d1b99f4e","name":"fmt","func":"let buf = Buffer.from(msg.payload)\n\nmsg.payload = buf.toString()\n\nif(buf.length > 100000){\n    return null;    \n}\nelse{\n    return msg;       \n}\n","outputs":1,"noerr":0,"initialize":"","finalize":"","libs":[],"x":690,"y":120,"wires":[["e1d2405bb471a56e"]]},{"id":"a5517d277ec0419e","type":"pipe2jpeg","z":"7b17aff1d1b99f4e","name":"","x":700,"y":60,"wires":[["de01a8f596957e75","4bf0093a17be8fbe"]]},{"id":"20201d6d5f4221a5","type":"daemon","z":"7b17aff1d1b99f4e","name":"Run rtsp-simple-server","command":"C:\\rtsp-simple-server\\rtsp-simple-server.exe","args":"C:\\rtsp-simple-server\\rtsp-simple-server.yml","autorun":true,"cr":true,"redo":true,"op":"string","closer":"SIGKILL","x":440,"y":280,"wires":[["8e0b4f527c504cd6"],["7fea043ffa87dabd"],["9cb54622f602aca2"]]},{"id":"8e0b4f527c504cd6","type":"debug","z":"7b17aff1d1b99f4e","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","statusVal":"","statusType":"auto","x":1030,"y":260,"wires":[]},{"id":"7fea043ffa87dabd","type":"debug","z":"7b17aff1d1b99f4e","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","statusVal":"","statusType":"auto","x":1030,"y":300,"wires":[]},{"id":"9cb54622f602aca2","type":"debug","z":"7b17aff1d1b99f4e","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","statusVal":"","statusType":"auto","x":1030,"y":340,"wires":[]},{"id":"9ee7766491e1b3f8","type":"inject","z":"7b17aff1d1b99f4e","name":"KILL","props":[{"p":"kill","v":"SIGTERM","vt":"str"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","x":230,"y":280,"wires":[["20201d6d5f4221a5"]]},{"id":"4bf0093a17be8fbe","type":"ffmpeg-spawn","z":"7b17aff1d1b99f4e","name":"FFmpeg to simple-rtsp-server","outputs":1,"cmdPath":"","cmdArgs":"[]","cmdOutputs":0,"killSignal":"SIGTERM","x":790,"y":400,"wires":[["f44678a02642be3d"]]},{"id":"f44678a02642be3d","type":"debug","z":"7b17aff1d1b99f4e","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"true","targetType":"full","statusVal":"","statusType":"auto","x":1010,"y":400,"wires":[]},{"id":"d1f80f9dd8510826","type":"function","z":"7b17aff1d1b99f4e","name":"Start / restart","func":"let newMsg = {\n  \"action\": {\n    \"command\": msg.topic,\n    \"args\":[\n            \"-i\",\n            \"pipe:0\",\n            \"-tune\",\n            \"zerolatency\",\n            \"-b:v\",\n            \"2M\",\n            \"-maxrate\",\n            \"2M\",\n            \"-bufsize\",\n            \"4M\",\n            \"-f\",\n            \"rtsp\",\n            \"rtsp://localhost:8554/23751808\",\n            \n        ]\n  },\n  \"payload\":msg.payload\n}\n\nreturn newMsg","outputs":1,"noerr":0,"initialize":"","finalize":"","libs":[],"x":410,"y":400,"wires":[["4bf0093a17be8fbe"]]},{"id":"c548123985dc0793","type":"inject","z":"7b17aff1d1b99f4e","name":"start","props":[{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"start","x":230,"y":400,"wires":[["d1f80f9dd8510826"]]},{"id":"98c0564b60cd875c","type":"inject","z":"7b17aff1d1b99f4e","name":"stop","props":[{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"stop","x":230,"y":480,"wires":[["c320b25dc4d439a3"]]},{"id":"17a0260208577abd","type":"inject","z":"7b17aff1d1b99f4e","name":"restart","props":[{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"restart","x":230,"y":440,"wires":[["d1f80f9dd8510826"]]},{"id":"c320b25dc4d439a3","type":"function","z":"7b17aff1d1b99f4e","name":"stop","func":"let newMsg = {\n  \"action\": {\n    \"command\": \"stop\"\n  }\n}\n\nreturn newMsg","outputs":1,"noerr":0,"initialize":"","finalize":"","libs":[],"x":390,"y":480,"wires":[["4bf0093a17be8fbe"]]}]
+```
+
+Access RTSP stream @rtsp://localhost:8554/23751808. You can use for example VLC player.
+
+
 ## Links and sources:
 
 Basler
@@ -168,11 +193,23 @@ https://flows.nodered.org/node/node-red-node-daemon
 
 https://github.com/kevinGodell/node-red-contrib-pipe2jpeg
 
+https://github.com/kevinGodell/node-red-contrib-ffmpeg-spawn
+
 https://flows.nodered.org/node/node-red-contrib-image-output
 
 https://flows.nodered.org/node/node-red-contrib-multipart-stream-decoder
 
+
 MJPEG server: 
 
 https://github.com/vuquangtrong/pi_streaming 
+
+FFmpeg
+
+https://ffmpeg.org/
+
+rtsp-simple-server
+
+https://github.com/aler9/rtsp-simple-server#installation
+
 
