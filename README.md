@@ -1,7 +1,7 @@
 # tequ-basler-app
-Connects to Basler camera and outputs JPEG images to stdout and serves JPEG images as MJPEG stream at local http server. This app is tested with Windows 10 machine and Basler ACE acA2500-14gm camera. Application is designed to be used as a system command from Node-RED (node-red-node-daemon) but can be used as stand-alone Python app.
+Connects to Basler camera and outputs JPEG images to stdout and serves JPEG images as MJPEG stream at local http server. This app is tested with Windows 10 machine and with both Basler ACE acA2500-14gm camera (GigE) and Basler Dart daA3840-45uc (USB 3.0). Application is designed to be used as a system command from Node-RED (node-red-node-daemon) but can be used as stand-alone Python app.
 
-Application initializes target Basler camera with parameters configured in config.json. Application also listens to stdin for commands to be passed to camera in realtime. 
+Application initializes target Basler camera with parameters configured in special configuration file (Tools -> Save Features), that can be generated with Basler Pylon viewer. Application also uses another configuration file "config.json" to configure for example image post-processing parameters. Application also listens to stdin for commands to be passed to camera in realtime. 
 
 Shutting down application and error handling is not optimized. Application is designed to run forever.
  
@@ -83,8 +83,9 @@ Send commands as JSON string.
 ```
 [{"BalanceWhiteAuto":"Once"}]
 ```
+Camera related commands 
 
-Camera related commands
+(All commands are not supported by both tested camera models and all possible are not implemented.)
 ```
 BalanceWhiteAuto
 Height
@@ -120,8 +121,7 @@ Other commands
 ```
 SetDefault
 PrintSettings
-```                              
-                       
+```                                                  
 
 ## Usage in Python
 
@@ -176,7 +176,6 @@ Please modify paths in "Run Basler APP" and "Run rtsp-simple-server" to match yo
 ```
 
 Access RTSP stream @rtsp://localhost:8554/23751808. You can use for example VLC player.
-
 
 ## Links and sources:
 
