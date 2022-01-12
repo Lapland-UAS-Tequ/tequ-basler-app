@@ -9,11 +9,19 @@ Shutting down application and error handling is not optimized. Application is de
 
 This installation procedure is for Windows 10 machine. Linux based machines are also supported, but these steps might be different. Please check Basler site for installation steps for Linux.
 
-### 1. Install Basler pylon software
+### 1. Download and install Basler Pylon software
 
-https://www.baslerweb.com/en/products/software/basler-pylon-camera-software-suite/
+pylon 6.3.0 Camera Software Suite Windows
 
-### 2. Install Python 
+https://tequ-files.s3.eu.cloud-object-storage.appdomain.cloud/Basler_pylon_6.3.0.23157.exe
+
+pylon 6.3.0 runtime 
+
+https://tequ-files.s3.eu.cloud-object-storage.appdomain.cloud/pylon_Runtime_6.3.0.23157.exe
+
+### 2. Download and install Python 
+
+https://tequ-win10-nodered-tensorflow.s3.eu.cloud-object-storage.appdomain.cloud/python-3.7.9-amd64.exe
 
 Developed and tested with Python 3.7.9.
 
@@ -33,9 +41,9 @@ Developed and tested with OpenCV 4.5.5.
 
 ### 6. Install Node.js and Node-RED
 
-First install Node.js.
+First download and install Node.js.
 
-https://nodejs.org/dist/v16.13.2/node-v16.13.2-x64.msi
+https://tequ-files.s3.eu.cloud-object-storage.appdomain.cloud/node-v16.13.2-x64.msi
 
 https://nodered.org/docs/getting-started/local
 
