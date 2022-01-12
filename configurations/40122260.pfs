@@ -3,8 +3,8 @@
 # Device = Basler::du1_imx334c -- Basler USB3 Vision camera interface -- Device version = 1.0.0 -- Product GUID = 1747613f-a028-3501-8788-5b6ab26bb494 -- Product version GUID = b695680e-b1a3-39ba-baf2-2126c06a4405
 ReverseX	0
 ReverseY	0
-Width	1920
-Height	1080
+Width	3840
+Height	2160
 OffsetX	0
 OffsetY	0
 PixelFormat	BayerRG8
@@ -14,7 +14,7 @@ ExposureTime	134372.0
 ExposureAuto	Continuous
 ExposureMode	Timed
 BslSensorBitDepthMode	Auto
-AcquisitionFrameRate	25.0
+AcquisitionFrameRate	5.0
 AcquisitionFrameRateEnable	1
 TriggerSelector	FrameBurstStart
 TriggerMode	Off
@@ -82,7 +82,7 @@ TriggerDelay	0.0
 TriggerSelector	FrameStart
 BslAcquisitionBurstMode	Standard
 AcquisitionBurstFrameCount	1
-AutoTargetBrightness	0.200
+AutoTargetBrightness	0.100
 AutoFunctionProfile	MinimizeGain
 AutoGainLowerLimit	0.000
 AutoGainUpperLimit	48.000
