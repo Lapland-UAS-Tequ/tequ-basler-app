@@ -32,6 +32,12 @@ pip install pypylon
 
 ### 4. Test your setup with Pylon viewer
 
+Open Pylon viewer. Search camera from devices list. Connect to camera, test it and configure features. 
+
+Finally Export features file.
+
+Tools -> Save Features.
+
 ### 5. Install OpenCV for Python
 ```
 pip install opencv-python
