@@ -31,15 +31,24 @@ pip install opencv-python
 
 Developed and tested with OpenCV 4.5.5.
 
-### 6. Install Node-RED
+### 6. Install Node.js and Node-RED
+
+First install Node.js.
+
+https://nodejs.org/dist/v16.13.2/node-v16.13.2-x64.msi
 
 https://nodered.org/docs/getting-started/local
+
+Go to command line and install Node-RED
 
 ```
 npm install -g --unsafe-perm node-red
 ```
 
 ### 7. Install Node-RED nodes
+
+Install Node-RED nodes that are used in examples flows.
+
 ```
 npm install node-red-node-daemon
 ```
