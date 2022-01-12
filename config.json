@@ -35,7 +35,35 @@
 		"converter": {
 			"Orientation": "BottomUp",
 			"ImageQuality": 85,
-			"GrabStrategy":"OneByOne"
+			"GrabStrategy":"LatestImageOnly",
+			"OutPutToStdOut": true,
+			"Resize": {
+				"enable": false,
+				"height": 1080,
+				"width": 1920
+			}
+		}
+	},
+	"40122260": {
+		"camera": {},
+		"converter": {
+			"GrabStrategy": "LatestImageOnly",
+			"ImageQuality": 85,
+			"Orientation": "Unchanged",
+			"OutPutToStdOut": true,
+			"Resize": {
+				"enable": true,
+				"height": 1080,
+				"width": 1920
+			},
+			"Crop": {
+				"enable": false,
+				"startY": 0,
+				"endY": 1080,
+				"startX": 0,
+				"endX": 1920
+
+			}
 		}
 	}
 }
