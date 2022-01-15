@@ -1,3 +1,9 @@
+This repository is developed in Fish-IoT project
+
+https://www.tequ.fi/en/project-bank/fish-iot/ 
+
+---
+
 # tequ-basler-app
 Connects to Basler camera and outputs JPEG images to stdout and serves JPEG images as MJPEG stream at local http server. This app is tested with Windows 10 machine and with both Basler ACE acA2500-14gm camera (GigE) and Basler Dart daA3840-45uc (USB 3.0). Application is designed to be used as a system command from Node-RED (node-red-node-daemon) but can be used as stand-alone Python app.
 
